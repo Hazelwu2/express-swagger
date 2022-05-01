@@ -12,11 +12,15 @@ const swaggerPath = path.resolve(__dirname, './swagger.yml')
 const swaggerDocument = YAML.load(swaggerPath)
 // const cssOptions = require('./utils/swagger.js')
 
+var options = {
+  explorer: true
+};
+
 // API Document
 app.use(
   '/apidoc',
   swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument),
+  swaggerUi.setup(swaggerDocument, options),
 )
 
 app.use(express.json())
