@@ -11,4 +11,5 @@ app.listen(PORT, () => {
   console.log(123)
   console.log(`Server is running at http://localhost:${PORT}`)
   console.log(`Swagger API Url http://localhost:${PORT}/apidoc`)
+  console.log(`Swagger API Url https://express-swagger.vercel.app/apidoc/#/`)
 })
