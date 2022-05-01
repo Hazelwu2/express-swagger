@@ -10,13 +10,13 @@ const YAML = require('yamljs')
 // Swagger
 const swaggerPath = path.resolve(__dirname, './swagger.yml')
 const swaggerDocument = YAML.load(swaggerPath)
-const cssOptions = require('./utils/swagger.js')
+// const cssOptions = require('./utils/swagger.js')
 
 // API Document
 app.use(
   '/apidoc',
   swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument, cssOptions),
+  swaggerUi.setup(swaggerDocument),
 )
 
 app.use(express.json())
