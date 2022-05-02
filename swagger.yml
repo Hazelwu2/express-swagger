@@ -1,10 +1,16 @@
-swagger: "3.0"
+openapi: 3.0.3
+
 info:
-  description: "Metawall API 文件"
+  description: "Metawall"
   version: "1.0.0"
-  title: "Metawall Swagger"
-host: "https://metawall-backend.vercel.app"
-basePath: ""
+  title: "Metawall API 文件"
+
+servers: 
+  - url: http://localhost:3005
+    description: 本地開發環境
+  - url: https://metawall-backend.vercel.app
+    description: 正式環境，使用真實資料
+
 tags:
 - name: "post"
   description: "貼文相關 API"
@@ -47,9 +53,6 @@ tags:
     description: "更多文件"
     url: https://hackmd.io/@ayugioh2003/Skv3dUtS5"
 
-schemes:
-- "https"
-
 paths:
   /login:
     post:
@@ -68,7 +71,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
   /signup:
     post:
       tags:
@@ -90,7 +93,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
   /logout:
     post:
       tags:
@@ -105,7 +108,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
 
   
   /current-userinfo:
@@ -118,7 +121,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
     patch:
       tags:
       - "user"
@@ -128,7 +131,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
   /reset-password:
     patch:
       tags:
@@ -140,7 +143,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
   /users:
     get:
       tags:
@@ -151,7 +154,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
   /users/{user_id}:
     get:
       tags:
@@ -168,7 +171,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
     post:
       tags:
       - "user"
@@ -178,7 +181,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
 
     patch:
       tags:
@@ -189,7 +192,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
 
     delete:
       tags:
@@ -200,7 +203,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/User"
+            $ref: comments/index.yaml#/comment-collections
 
   /posts:
     post:
@@ -230,7 +233,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
 
   /posts/{user_id}:
     get:
@@ -249,7 +252,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
       
   /posts/{post_id}:
     get:
@@ -268,7 +271,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
     patch:
       tags:
       - "post"
@@ -278,7 +281,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
       
     delete:
       tags:
@@ -289,7 +292,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Post"
+            $ref: comments/index.yaml#/comment-collections
 
   /comments?post_id={post_id}:
     get:
@@ -301,7 +304,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Comment"
+            $ref: comments/index.yaml#/comment-collections
   /comments:
     post:
       tags:
@@ -312,7 +315,7 @@ paths:
         "200":
         description: "操作成功"
         schema:
-          $ref: "#/definitions/Comment"
+          $ref: comments/index.yaml#/comment-collections
     patch:
       tags:
       - "comments"
@@ -322,7 +325,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Comment"
+            $ref: comments/index.yaml#/comment-collections
     delete:
       tags:
       - "comments"
@@ -332,7 +335,7 @@ paths:
         "200":
           description: "操作成功"
           schema:
-            $ref: "#/definitions/Comment"
+            $ref: comments/index.yaml#/comment-collections
 
 securityDefinitions:
   petstore_auth:
